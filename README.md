@@ -4,7 +4,7 @@ Traffic Utils is the supported successor of Reset Traffic, Jam Threshold, and Ac
 
 Jam Threshold and Accidents Be Gone start disabled. Turn each on in its own Options tab. Reset Traffic stays available from its tab.
 
-Version 0.0.1 alpha. Published on Paradox as mod 160488: https://mods.paradoxplaza.com/mods/160488/Windows
+Version 0.0.2 alpha. Published on Paradox as mod 160488: https://mods.paradoxplaza.com/mods/160488/Windows
 
 Source: https://github.com/mafra-code/cs2-traffic_utils
 

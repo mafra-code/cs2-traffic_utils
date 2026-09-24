@@ -581,7 +581,7 @@
             RequireForUpdate(m_ObjectQuery);
 
             Setting settings = TrafficUtils.Mod.Instance?.Settings;
-            ApplyOwnership(settings == null || settings.JamEnabled);
+            ApplyOwnership(settings != null && settings.JamEnabled);
         }
 
         protected override void OnDestroy()

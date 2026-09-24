@@ -51,12 +51,12 @@ namespace TrafficUtils
             target.FrameInterval = reset.FrameInterval;
             target.ResetEnableDebugging = reset.EnableDebugging;
 
-            target.JamEnabled = jam.Enabled;
+            target.JamEnabled = false;
             target.ChainDepth = jam.ChainDepth;
             target.MaxStuckSpeed = jam.MaxStuckSpeed;
             target.JamEnableDebugging = jam.EnableDebugging;
 
-            target.AccidentEnabled = accident.Enabled;
+            target.AccidentEnabled = false;
             target.UpdateInterval = accident.UpdateInterval;
             target.ClearOnLoad = accident.ClearOnLoad;
             target.AccidentEnableDebugging = accident.EnableDebugging;
