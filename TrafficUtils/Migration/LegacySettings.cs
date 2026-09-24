@@ -1,7 +1,6 @@
 namespace TrafficUtils
 {
     using Colossal.IO.AssetDatabase;
-    using Game.Input;
     using Game.Modding;
     using Game.Settings;
 
@@ -43,8 +42,6 @@ namespace TrafficUtils
         public int VehiclesPerFrame { get; set; }
 
         public int FrameInterval { get; set; }
-
-        public ProxyBinding ResetHotkey { get; set; }
 
         public bool EnableDebugging { get; set; }
 

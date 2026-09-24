@@ -5,7 +5,6 @@
     using Game;
     using Game.Common;
     using Game.Creatures;
-    using Game.Input;
     using Game.Objects;
     using Game.Rendering;
     using Game.SceneFlow;
@@ -76,7 +75,7 @@
         // Next index to consider; advanced even when the entity is already gone so Remaining can hit 0.
         private int m_SnapshotIndex;
         private bool m_SnapshotReady;
-        // True from RequestReset until Finish. Extra button/hotkey presses are ignored while set.
+        // True from RequestReset until Finish. Extra button presses are ignored while set.
         private bool m_Requested;
         // One Info line when waiting for speed > 0; the wait itself can last many frames.
         private bool m_LoggedWait;
@@ -84,7 +83,6 @@
         private int m_LastLoggedCount;
         private int m_LastProcessedFrame = -1;
         private int m_LastWaitLogFrame = -1;
-        private bool m_LoggedNullHotkey;
         private int m_DebugSkipNull;
         private int m_DebugSkipMissing;
         private int m_DebugSkipDeleted;
@@ -129,7 +127,7 @@
         }
 
         /// <summary>
-        /// Queue a reset. Shared by the Options button and the hotkey. Safe to call before the
+        /// Queue a reset from the Options Reset button. Safe to call before the
         /// system's first ToolUpdate (creates the system if needed). No-ops if already running,
         /// not in a city, or no types are checked.
         /// </summary>
@@ -316,8 +314,6 @@
 
         protected override void OnUpdate()
         {
-            PollHotkey();
-
             if (!m_Requested)
             {
                 return;
@@ -674,41 +670,6 @@
         private static void BumpUi()
         {
             UiVersion++;
-        }
-
-        private void PollHotkey()
-        {
-            Setting settings = TrafficUtils.Mod.Instance?.Settings;
-            if (settings == null)
-            {
-                return;
-            }
-
-            ProxyAction action = settings.GetAction(nameof(Setting.ResetHotkey));
-            if (action == null)
-            {
-                // Binding is not registered with InputManager, so the hotkey cannot fire.
-                if (settings.ResetEnableDebugging && !m_LoggedNullHotkey)
-                {
-                    m_LoggedNullHotkey = true;
-                    DebugLog("GetAction(ResetHotkey) returned null. Hotkey will not fire.");
-                }
-
-                return;
-            }
-
-            // InputManager only delivers the action while enabled; keep it off in menus/Options.
-            action.shouldBeEnabled = Setting.ResetIsInGame();
-            bool performed = action.WasPerformedThisFrame();
-            if (settings.ResetEnableDebugging && performed)
-            {
-                DebugLog($"hotkey performed shouldBeEnabled={action.shouldBeEnabled} inGame={Setting.ResetIsInGame()} alreadyRunning={IsActive}");
-            }
-
-            if (performed && Setting.ResetIsInGame())
-            {
-                RequestReset();
-            }
         }
 
         // Returns how many entities were newly tagged (the vehicle plus its extra slots) so Removed

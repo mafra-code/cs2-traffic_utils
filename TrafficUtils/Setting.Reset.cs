@@ -3,14 +3,13 @@
     using ResetTraffic;
     using Colossal.IO.AssetDatabase;
     using Game;
-    using Game.Input;
     using Game.Modding;
     using Game.Settings;
     using Game.Tools;
     using Unity.Entities;
 
     /// <summary>
-    /// Options page: type filters, pace, hotkey, and a Status line (remaining / removed / snapshot).
+    /// Options page: type filters, pace, and a Status line (remaining / removed / snapshot).
     /// <see cref="ResetGetUiVersion"/> forces Options to rebind that line when the system publishes progress.
     /// </summary>
     // Saved as Mods_ResetTraffic.coc under the game's ModsSettings folder.
@@ -22,7 +21,6 @@
         public const string ResetMovingGroup = "Moving";
         public const string ResetParkedGroup = "Parked";
         public const string ResetPaceGroup = "Pace";
-        public const string ResetKeybindingGroup = "KeyBinding";
         public const string ResetDebugGroup = "ResetDebug";
         public const string ResetDefaultsGroup = "Defaults";
 
@@ -78,7 +76,7 @@
 
         /// <summary>
         /// Options button. Restores filters, pace sliders, and debugging.
-        /// Does not change the hotkey or queue a traffic reset.
+        /// Does not queue a traffic reset.
         /// Sits in its own group so a header separates it from the type filters below.
         /// </summary>
         [SettingsUISection(TabReset, ResetDefaultsGroup)]
@@ -144,21 +142,6 @@
         [SettingsUISection(TabReset, ResetPaceGroup)]
         [SettingsUISlider(min = MinFrameInterval, max = MaxFrameInterval, step = 1, scalarMultiplier = 1)]
         public int FrameInterval { get; set; }
-
-        [SettingsUISection(TabReset, ResetKeybindingGroup)]
-        // A real default key is required; BindingKeyboard.None never registers an InputManager action.
-        [SettingsUIKeyboardBinding(BindingKeyboard.F9, nameof(ResetHotkey), alt: false, ctrl: false, shift: false)]
-        public ProxyBinding ResetHotkey { get; set; }
-
-        [SettingsUISection(TabReset, ResetKeybindingGroup)]
-        [SettingsUIButton]
-        public bool ResetBindings
-        {
-            set
-            {
-                ResetKeyBindings();
-            }
-        }
 
         /// <summary>Verbose <c>[DEBUG]</c> lines in the mod log. Hits FPS; leave off unless diagnosing a run.</summary>
         [SettingsUISection(TabReset, ResetDebugGroup)]

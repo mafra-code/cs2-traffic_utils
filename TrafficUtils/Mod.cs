@@ -47,8 +47,6 @@ namespace TrafficUtils
 
             SettingsMigration.ImportIfNeeded(Settings, this);
             AssetDatabase.global.LoadSettings(nameof(TrafficUtils), Settings, new Setting(this));
-            // After LoadSettings, so the persisted binding is what gets registered.
-            Settings.RegisterKeyBindings();
 
             updateSystem.UpdateAt<ResetTraffic.ResetTrafficSystem>(SystemUpdatePhase.ToolUpdate);
             updateSystem.UpdateAt<JamThreshold.JamThresholdSystem>(SystemUpdatePhase.GameSimulation);
