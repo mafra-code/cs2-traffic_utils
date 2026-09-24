@@ -2,7 +2,9 @@
 
 Traffic Utils is the supported successor of Reset Traffic, Jam Threshold, and Accidents Be Gone. One Options page has a tab for each. Disable the three older mods before you test. Leaving them on runs each system twice.
 
-Version 0.1.0. Not published to Paradox. The publish configuration has an empty ModId.
+Jam Threshold and Accidents Be Gone start disabled. Turn each on in its own Options tab. Reset Traffic stays available from its tab.
+
+Version 0.0.1 alpha. Not published to Paradox. The publish configuration has an empty ModId.
 
 Source: https://github.com/mafra-code/cs2-traffic_utils
 

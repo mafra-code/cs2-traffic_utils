@@ -38,7 +38,7 @@
         /// </summary>
         [SettingsUISection(TabJam, JamToggleGroup)]
         [SettingsUISetter(typeof(Setting), nameof(JamOnEnabledChanged))]
-        public bool JamEnabled { get; set; }
+        public bool JamEnabled { get; set; } = false;
 
         /// <summary>
         /// A blocked chain is flagged stuck if it is a loop or this many vehicles long.
@@ -436,7 +436,7 @@
 
         internal void ApplyJamDefaults()
         {
-            JamEnabled = true;
+            JamEnabled = false;
             ChainDepth = DefaultChainDepth;
             MaxStuckSpeed = DefaultMaxStuckSpeed;
             JamEnableDebugging = false;

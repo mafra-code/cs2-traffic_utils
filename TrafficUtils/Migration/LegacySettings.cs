@@ -77,7 +77,7 @@ namespace TrafficUtils
             SetDefaults();
         }
 
-        public bool Enabled { get; set; }
+        public bool Enabled { get; set; } = false;
 
         public int ChainDepth { get; set; }
 
@@ -87,7 +87,7 @@ namespace TrafficUtils
 
         public override void SetDefaults()
         {
-            Enabled = true;
+            Enabled = false;
             ChainDepth = Setting.DefaultChainDepth;
             MaxStuckSpeed = Setting.DefaultMaxStuckSpeed;
             EnableDebugging = false;
@@ -104,7 +104,7 @@ namespace TrafficUtils
             SetDefaults();
         }
 
-        public bool Enabled { get; set; }
+        public bool Enabled { get; set; } = false;
 
         public int UpdateInterval { get; set; }
 
@@ -114,7 +114,7 @@ namespace TrafficUtils
 
         public override void SetDefaults()
         {
-            Enabled = true;
+            Enabled = false;
             UpdateInterval = Setting.DefaultUpdateInterval;
             ClearOnLoad = true;
             EnableDebugging = false;

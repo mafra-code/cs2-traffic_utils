@@ -33,7 +33,7 @@
         /// </summary>
         [SettingsUISection(TabAccident, AccidentToggleGroup)]
         [SettingsUISetter(typeof(Setting), nameof(AccidentOnEnabledChanged))]
-        public bool AccidentEnabled { get; set; } = true;
+        public bool AccidentEnabled { get; set; } = false;
 
         /// <summary>
         /// Frames between runs of the chance write and the statistics scan. 1 runs every frame.
@@ -104,7 +104,7 @@
 
         internal void ApplyAccidentDefaults()
         {
-            AccidentEnabled = true;
+            AccidentEnabled = false;
             UpdateInterval = DefaultUpdateInterval;
             ClearOnLoad = true;
             AccidentEnableDebugging = false;
