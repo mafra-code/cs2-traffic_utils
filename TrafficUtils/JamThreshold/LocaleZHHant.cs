@@ -1,0 +1,112 @@
+﻿namespace JamThreshold
+{
+    using Setting = TrafficUtils.Setting;
+    using System.Collections.Generic;
+    using Colossal;
+
+    /// <summary>
+    /// AI-generated Options strings from the English meaning. Keys match <see cref="LocaleEN"/>.
+    /// </summary>
+    public class LocaleZHHant : IDictionarySource
+    {
+        private readonly Setting m_Setting;
+
+        public LocaleZHHant(Setting setting)
+        {
+            m_Setting = setting;
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> ReadEntries(IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
+        {
+            return new Dictionary<string, string>
+            {
+                { m_Setting.GetSettingsLocaleID(), "Jam Threshold" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamToggleGroup), "替代" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamThresholdGroup), "閾值" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamStatsGroup), "統計" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamRateGroup), "速率" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamVanillaGroup), "Vanilla" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.JamDebugGroup), "Debug" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamEnabled)), "啟用" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JamEnabled)), "開啟時，遊戲原本的卡住檢測會關閉，此替代項依下方滑桿運作。關閉時恢復原版行為。這不會重置全城交通。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ChainDepth)), "鏈條深度" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ChainDepth)), "被堵住的車輛鏈如果是環，或長度超過此值，就會被標記為卡住。原版為 100。預設 40，讓較短的壅塞開始消失。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.MaxStuckSpeed)), "速度閾值" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.MaxStuckSpeed)), "原始 Blocker 速度位元組（每單位約 0.2 m/s）。若有車輛達到或超過此值，鏈條遍歷會停止。原版 6 約為 1.2 m/s。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ClearedText)), "本次工作階段已清除" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ClearedText)), "自載入城市以來，本替換判定為堵死的物件數量。車內乘客只透過車輛計一次。若數字看起來沒有更新，請重新開啟本頁。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamRateText)), "全部物件" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JamRateText)), "每遊戲小時清除的物件數，不是現實小時。暫停時不計。遊戲時間足夠後才會顯示。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCarText)), "汽車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamDeliveryTruckText)), "配送卡車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamGarbageTruckText)), "垃圾車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCargoTruckText)), "貨運卡車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamRoadMaintenanceText)), "道路養護" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamParkMaintenanceText)), "公園養護" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamMaintenanceText)), "養護車輛" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamFireEngineText)), "消防車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPoliceCarText)), "警車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPostVanText)), "郵政車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAmbulanceText)), "救護車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamHearseText)), "靈車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPrisonerTransportText)), "囚犯運輸" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamEvacuationText)), "疏散車輛" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTaxiText)), "計程車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTransitText)), "大眾運輸" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPassengerTrainText)), "客運列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCargoTrainText)), "貨運列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTrainText)), "列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAirplaneText)), "飛機" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamHelicopterText)), "直升機" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAircraftText)), "航空器" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamWatercraftText)), "船隻" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamBicycleText)), "自行車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPedestrianText)), "行人" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamOtherText)), "其他" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCarRateText)), "汽車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamDeliveryTruckRateText)), "配送卡車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamGarbageTruckRateText)), "垃圾車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCargoTruckRateText)), "貨運卡車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamRoadMaintenanceRateText)), "道路養護" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamParkMaintenanceRateText)), "公園養護" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamMaintenanceRateText)), "養護車輛" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamFireEngineRateText)), "消防車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPoliceCarRateText)), "警車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPostVanRateText)), "郵政車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAmbulanceRateText)), "救護車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamHearseRateText)), "靈車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPrisonerTransportRateText)), "囚犯運輸" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamEvacuationRateText)), "疏散車輛" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTaxiRateText)), "計程車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTransitRateText)), "大眾運輸" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPassengerTrainRateText)), "客運列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamCargoTrainRateText)), "貨運列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamTrainRateText)), "列車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAirplaneRateText)), "飛機" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamHelicopterRateText)), "直升機" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamAircraftRateText)), "航空器" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamWatercraftRateText)), "船隻" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamBicycleRateText)), "自行車" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamPedestrianRateText)), "行人" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamOtherRateText)), "其他" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamResetStats)), "重設統計" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JamResetStats)), "把所有計數器歸零並重新開始遊戲小時計時。不會變更你的閾值，也不會移除車輛。" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.JamResetStats)), "要把統計歸零嗎？這只會清空計數器，你的閾值與城市裡的交通都不受影響。" },
+                { ClearanceStats.ClearedId, "{TOTAL} 個物件" },
+                { ClearanceStats.RateId, "約 {RATE} 個物件 / 遊戲小時" },
+                { ClearanceStats.KindRateId, "約 {RATE} / 遊戲小時" },
+                { ClearanceStats.RateUnknownId, "—" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JamEnableDebugging)), "Debugging" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JamEnableDebugging)), "在 Mods_JamThreshold.log 寫入詳細卡住紀錄。開啟時會拖慢遊戲。關閉以恢復正常速度。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetToVanilla)), "恢復原版" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetToVanilla)), "關閉此替代項並使用遊戲原本的卡住檢測（鏈條 100，速度 6）。不會清除全城車輛。再次啟用時滑桿會保留。" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.ResetToVanilla)), "使用遊戲原本的卡住檢測？在你再次啟用此模組之前，短壅塞會再次一直停著。這不會移除車輛。" },
+            };
+        }
+
+        public void Unload()
+        {
+            // IDictionarySource requires Unload; Colossal keeps the source for the session.
+        }
+    }
+}

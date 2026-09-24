@@ -1,0 +1,98 @@
+﻿namespace ResetTraffic
+{
+    using Setting = TrafficUtils.Setting;
+    using System.Collections.Generic;
+    using Colossal;
+
+    /// <summary>
+    /// English Options strings. Keys are built from <see cref="Setting"/> locale IDs so labels
+    /// stay bound if a property is renamed.
+    /// </summary>
+    public class LocaleEN : IDictionarySource
+    {
+        private readonly Setting m_Setting;
+
+        public LocaleEN(Setting setting)
+        {
+            m_Setting = setting;
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> ReadEntries(IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
+        {
+            return new Dictionary<string, string>
+            {
+                { m_Setting.GetSettingsLocaleID(), "Reset Traffic" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetVehicles)), "Reset selected" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetVehicles)), "One-shot: remove the checked types that exist right now. Newly spawned traffic is left alone. Close Options, then set speed to 1." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.ResetVehicles)), "Reset the checked vehicles and pedestrians that exist right now? Newly spawned traffic will not be removed. Close Options, then set speed to 1." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ProgressText)), "Status" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ProgressText)), "Idle or running, plus remaining / removed / snapshot. Re-open Options if the line does not refresh while a reset is in progress." },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetActionGroup), "Reset" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetFeedbackGroup), "Feedback" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetDefaultsGroup), "Defaults" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetMovingGroup), "Moving vehicles and pedestrians" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetParkedGroup), "Parked" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetPaceGroup), "Pace" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetKeybindingGroup), "Hotkey" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetDebugGroup), "Debug" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingCars)), "Cars" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingCars)), "Personal cars currently driving." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingBicycles)), "Bicycles" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingBicycles)), "Bicycles currently moving." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingTrains)), "Trains" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingTrains)), "Trains and metro currently moving." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingPublicTransport)), "Public transport" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingPublicTransport)), "Buses, taxis, and other moving public transport (not trains)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingTrucks)), "Trucks and service" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingTrucks)), "Delivery trucks, garbage, police, fire, post, ambulances, and similar." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingOther)), "Aircraft and watercraft" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingOther)), "Planes, helicopters, and boats that are currently moving." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemovePedestrians)), "Pedestrians" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemovePedestrians)), "Walking cims. Off by default. People already in vehicles are not targeted." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedCars)), "Parked cars" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedCars)), "Cars at lots, curbs, and building garages (including service and depot vehicles). On by default." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedBicycles)), "Parked bicycles" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedBicycles)), "Stationary bicycles. On by default." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedTrains)), "Parked trains" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedTrains)), "Trains sitting in depots or yards." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedOther)), "Other parked" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedOther)), "Any other parked vehicles (boats at docks, planes at gates, and similar)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.VehiclesPerFrame)), "Entities per frame" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.VehiclesPerFrame)), "How many entities to remove each batch (1–64)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.FrameInterval)), "Extra frames between batches" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.FrameInterval)), "Wait this many extra display frames after each batch. 0 = every frame, 4 ≈ four times slower." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetHotkey)), "Reset hotkey" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetHotkey)), "Key to queue a reset without opening Options. Default F9. Click the key, then press a new one to rebind." },
+                { m_Setting.GetBindingKeyLocaleID(nameof(Setting.ResetHotkey)), "Reset selected" },
+                { m_Setting.GetBindingMapLocaleID(), "Reset Traffic" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetBindings)), "Reset key bindings" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetBindings)), "Restore the reset hotkey to F9." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetEnableDebugging)), "Debugging" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetEnableDebugging)), "Verbose reset logs in Mods_ResetTraffic.log. Slows the game while on. Turn off for normal speed." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetModSettings)), "Reset to defaults" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetModSettings)), "Restore type filters, pace sliders, and debugging to their original values. Does not change the hotkey or despawn traffic." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.ResetModSettings)), "Restore type filters, pace sliders, and debugging to their default values? This does not change the hotkey or despawn traffic." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JoinDiscord)), "Join the Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JoinDiscord)), "Opens the invite in your web browser, outside the game. Comments and feedback are very welcome: how long a full reset took, your city's population, and anything that broke." },
+                { ResetTrafficSystem.FinishDialogTitleId, "Reset Traffic" },
+                { ResetTrafficSystem.FinishDialogOkId, "OK" },
+                { ResetTrafficSystem.FinishDialogCountsId, "Remaining {REMAINING}  ·  Removed {REMOVED}  ·  Snapshot {SNAPSHOT}" },
+                { ResetTrafficSystem.StatusIdlePrefixId, "Idle." },
+                { ResetTrafficSystem.StatusIdleFreshId, "Idle. No reset yet this session." },
+                { ResetTrafficSystem.StatusRunningId, "Running." },
+                { ResetTrafficSystem.StatusQueuedId, "Queued. Close Options, then set speed to 1." },
+                { ResetTrafficSystem.StatusWaitingId, "Waiting for speed 1." },
+                { ResetTrafficSystem.StatusNoTypesId, "Skipped: no types are checked." },
+                { ResetTrafficSystem.StatusNothingMatchedId, "Reset complete: nothing matched the checked types." },
+                { ResetTrafficSystem.StatusSnapshotReadyId, "Snapshot {SNAPSHOT}. Removing listed entities only." },
+                { ResetTrafficSystem.StatusProgressId, "Running: {REMOVED} removed, {REMAINING} left." },
+                { ResetTrafficSystem.StatusCompleteId, "Reset complete: {REMOVED} entities." },
+            };
+        }
+
+        public void Unload()
+        {
+            // IDictionarySource requires Unload; Colossal keeps the source for the session.
+        }
+    }
+}

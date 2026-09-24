@@ -1,0 +1,97 @@
+﻿namespace ResetTraffic
+{
+    using Setting = TrafficUtils.Setting;
+    using System.Collections.Generic;
+    using Colossal;
+
+    /// <summary>
+    /// AI-generated Options strings from the English meaning. Keys match <see cref="LocaleEN"/>.
+    /// </summary>
+    public class LocaleES : IDictionarySource
+    {
+        private readonly Setting m_Setting;
+
+        public LocaleES(Setting setting)
+        {
+            m_Setting = setting;
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> ReadEntries(IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
+        {
+            return new Dictionary<string, string>
+            {
+                { m_Setting.GetSettingsLocaleID(), "Reset Traffic" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetVehicles)), "Restablecer selección" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetVehicles)), "Una vez: elimina los tipos marcados que existen ahora. El tráfico recién generado no se toca. Cierra Opciones y pon la velocidad en 1." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.ResetVehicles)), "¿Restablecer los vehículos y peatones marcados que existen ahora? El tráfico recién generado no se eliminará. Cierra Opciones y pon la velocidad en 1." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ProgressText)), "Estado" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ProgressText)), "Inactivo o en curso, más restantes / eliminados / instantánea. Vuelve a abrir Opciones si la línea no se actualiza durante un reset." },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetActionGroup), "Reset" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetFeedbackGroup), "Comentarios" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetDefaultsGroup), "Valores predeterminados" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetMovingGroup), "Vehículos y peatones en movimiento" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetParkedGroup), "Aparcados" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetPaceGroup), "Ritmo" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetKeybindingGroup), "Atajo" },
+                { m_Setting.GetOptionGroupLocaleID(Setting.ResetDebugGroup), "Debug" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingCars)), "Coches" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingCars)), "Coches particulares que circulan ahora." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingBicycles)), "Bicicletas" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingBicycles)), "Bicicletas en movimiento ahora." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingTrains)), "Trenes" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingTrains)), "Trenes y metro en movimiento ahora." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingPublicTransport)), "Transporte público" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingPublicTransport)), "Autobuses, taxis y otro transporte público en movimiento (no trenes)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingTrucks)), "Camiones y servicios" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingTrucks)), "Camiones de entrega, basura, policía, bomberos, correo, ambulancias y similares." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveMovingOther)), "Aeronaves y embarcaciones" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveMovingOther)), "Aviones, helicópteros y barcos en movimiento ahora." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemovePedestrians)), "Peatones" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemovePedestrians)), "Cims a pie. Desactivado por defecto. Quienes ya van en un vehículo no se incluyen." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedCars)), "Coches aparcados" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedCars)), "Coches en aparcamientos, en el bordillo y en garajes de edificios (incluidos vehículos de servicio y de depósito). Activado por defecto." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedBicycles)), "Bicicletas aparcadas" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedBicycles)), "Bicicletas paradas. Activado por defecto." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedTrains)), "Trenes aparcados" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedTrains)), "Trenes en depósitos o playas de vías." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.RemoveParkedOther)), "Otros aparcados" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.RemoveParkedOther)), "Cualquier otro vehículo aparcado (barcos en muelles, aviones en puertas y similares)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.VehiclesPerFrame)), "Entidades por fotograma" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.VehiclesPerFrame)), "Cuántas entidades quitar en cada lote (1–64)." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.FrameInterval)), "Fotogramas extra entre lotes" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.FrameInterval)), "Esperar tantos fotogramas de pantalla extra tras cada lote. 0 = cada fotograma, 4 ≈ cuatro veces más lento." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetHotkey)), "Atajo de reset" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetHotkey)), "Tecla para poner un reset en cola sin abrir Opciones. Predeterminado F9. Pulsa la tecla y luego otra para reasignar." },
+                { m_Setting.GetBindingKeyLocaleID(nameof(Setting.ResetHotkey)), "Restablecer selección" },
+                { m_Setting.GetBindingMapLocaleID(), "Reset Traffic" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetBindings)), "Restablecer atajos" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetBindings)), "Restaura el atajo de reset a F9." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetEnableDebugging)), "Debugging" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetEnableDebugging)), "Registros detallados de reset en Mods_ResetTraffic.log. Ralentiza el juego mientras está activo. Apágalo para velocidad normal." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.ResetModSettings)), "Restablecer valores predeterminados" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.ResetModSettings)), "Restaura filtros de tipo, deslizadores de ritmo y debugging a sus valores originales. No cambia el atajo ni elimina tráfico." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Setting.ResetModSettings)), "¿Restaurar filtros de tipo, deslizadores de ritmo y debugging a los valores predeterminados? Esto no cambia el atajo ni elimina tráfico." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Setting.JoinDiscord)), "Únete al Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Setting.JoinDiscord)), "Abre la invitación en tu navegador web, fuera del juego. Los comentarios y las sugerencias son muy bienvenidos: cuánto tardó un reset completo, la población de tu ciudad y cualquier cosa que se rompiera." },
+                { ResetTrafficSystem.FinishDialogTitleId, "Reset Traffic" },
+                { ResetTrafficSystem.FinishDialogOkId, "OK" },
+                { ResetTrafficSystem.FinishDialogCountsId, "Restantes {REMAINING}  ·  Eliminados {REMOVED}  ·  Instantánea {SNAPSHOT}" },
+                { ResetTrafficSystem.StatusIdlePrefixId, "Inactivo." },
+                { ResetTrafficSystem.StatusIdleFreshId, "Inactivo. Aún no hay ningún reset en esta sesión." },
+                { ResetTrafficSystem.StatusRunningId, "En curso." },
+                { ResetTrafficSystem.StatusQueuedId, "En cola. Cierra Opciones y pon la velocidad en 1." },
+                { ResetTrafficSystem.StatusWaitingId, "Esperando a la velocidad 1." },
+                { ResetTrafficSystem.StatusNoTypesId, "Omitido: no hay ningún tipo marcado." },
+                { ResetTrafficSystem.StatusNothingMatchedId, "Reset completado: nada coincidió con los tipos marcados." },
+                { ResetTrafficSystem.StatusSnapshotReadyId, "Instantánea {SNAPSHOT}. Solo se eliminan las entidades listadas." },
+                { ResetTrafficSystem.StatusProgressId, "En curso: {REMOVED} eliminados, {REMAINING} restantes." },
+                { ResetTrafficSystem.StatusCompleteId, "Reset completado: {REMOVED} entidades." },
+            };
+        }
+
+        public void Unload()
+        {
+            // IDictionarySource requires Unload; Colossal keeps the source for the session.
+        }
+    }
+}

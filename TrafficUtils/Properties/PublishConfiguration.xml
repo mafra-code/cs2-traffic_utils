@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Publish>
+  <ModId Value="" />
+  <DisplayName Value="Traffic Utils" />
+  <ShortDescription Value="Traffic Utils replaces Reset Traffic, Jam Threshold, and Accidents Be Gone. One Options page, one tab per feature. Disable the three older mods." />
+  <LongDescription Value="Traffic Utils replaces Reset Traffic, Jam Threshold, and Accidents Be Gone. Each feature has its own Options tab. Disable the older mods: they are no longer supported, and leaving them on runs the same systems twice.&#xA;&#xA;## What it does&#xA;&#xA;*   **Reset Traffic** tab: one-shot reset of the vehicle and pedestrian types you check, so demand can spawn fresh traffic.&#xA;*   **Jam Threshold** tab: configurable stuck-jam despawn thresholds in place of the vanilla stuck-mover check.&#xA;*   **Accidents Be Gone** tab: holds traffic-accident chance at zero and can clear wrecks already on the roads.&#xA;&#xA;On first launch, if Mods_TrafficUtils.coc is missing, settings are copied once from Mods_ResetTraffic.coc, Mods_JamThreshold.coc, and Mods_AccidentsBeGone.coc. The old files stay where they are.&#xA;&#xA;---&#xA;&#xA;Traffic Utils ersetzt Reset Traffic, Jam Threshold und Accidents Be Gone. Jede Funktion hat einen eigenen Options-Tab. Schalte die älteren Mods aus: sie werden nicht mehr unterstützt, und wenn sie an bleiben, laufen dieselben Systeme doppelt.&#xA;&#xA;## Was es tut&#xA;&#xA;*   **Reset Traffic**: setzt die angehakten Fahrzeug- und Fußgängertypen einmal zurück, damit die Nachfrage frischen Verkehr spawnen kann.&#xA;*   **Jam Threshold**: einstellbare Schwellen, ab wann feststeckende Staus despawnen, anstelle der Vanilla-Prüfung.&#xA;*   **Accidents Be Gone**: hält die Unfallchance auf null und kann Wracks räumen, die schon auf den Straßen liegen.&#xA;&#xA;Beim ersten Start, wenn Mods_TrafficUtils.coc fehlt, werden die Einstellungen einmal aus Mods_ResetTraffic.coc, Mods_JamThreshold.coc und Mods_AccidentsBeGone.coc übernommen. Die alten Dateien bleiben liegen.&#xA;&#xA;---&#xA;&#xA;## Info&#xA;&#xA;*   **License · Lizenz:** MIT&#xA;*   **Source · Quelle:** [https://github.com/mafra-code/cs2-traffic_utils](https://github.com/mafra-code/cs2-traffic_utils)&#xA;&#xA;Cities: Skylines II is a trademark of Paradox Interactive / Colossal Order. This project is not affiliated with or endorsed by them." />
+  <Thumbnail Value="Properties/Thumbnail.png" />
+  <Tag Value="Code Mod" />
+  <ForumLink Value="" />
+  <ModVersion Value="0.1.0" />
+  <GameVersion Value="1.6.*" />
+  <Dependency Id="" DisplayName="" Version="" />
+  <ChangeLog Value="## 0.1.0&#xA;&#xA;First local build. Traffic Utils replaces Reset Traffic, Jam Threshold, and Accidents Be Gone, with one Options tab for each. Settings are imported once from the three older .coc files when Mods_TrafficUtils.coc is missing." />
+  <ExternalLink Type="discord" Url="https://discord.gg/84UxmTGZm" />
+  <ExternalLink Type="github" Url="https://github.com/mafra-code/cs2-traffic_utils" />
+  <AccessLevel Value="Public" />
+</Publish>
